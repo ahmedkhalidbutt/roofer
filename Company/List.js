@@ -1,81 +1,39 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardHeader } from 'reactstrap';
-import RemoteTable from '../../components/common/RemoteTable';
 import { withTranslation } from 'react-i18next';
+import CompanyList from '../../modules/Entity/Company/List'
 
-class CompanyList extends Component {
+class CustomCompanyList extends Component {
 	render() {
-		const columns = [
-			{ dataField: 'id', text: this.props.t('general:id'), align: 'center', sort: true },
+		let extendedFields = [
 			{
-				dataField: 'name',
-				text: this.props.t('general:name'),
+				dataField: 'address.zip_code',
+				text: this.props.t('general:zipcode'),
 				align: 'center',
 				sort: true
 			},
-			{
-				dataField: 'phone1',
-				text: this.props.t('general:phone'),
-				align: 'center',
-				sort: true
-			},
-			{
-				dataField: 'phone2',
-				text: this.props.t('general:phone2'),
-				align: 'center',
-				sort: true
-			},
-			{
-				dataField: 'address.addr1',
-				text: this.props.t('general:address'),
-				align: 'center',
-				sort: true
-			},
-			{
-				dataField: 'address.city',
-				text: this.props.t('general:city'),
-				align: 'center',
-				sort: true
-			},
-			{
-				dataField: 'address.state',
-				text: this.props.t('general:state'),
-				align: 'center',
-				sort: true
-			},
-			{
-				dataField: 'address.country',
-				text: this.props.t('general:country'),
-				align: 'center',
-				sort: true
-			}
-		];
-		const defaultSorted = [
-			{
-				dataField: 'id',
-				order: 'desc'
-			}
-		];
+			// {
+			// 	dataField: 'address.lat',
+			// 	text: this.props.t('general:lat'),
+			// 	align: 'center',
+			// 	sort: true
+			// },
+			// {
+			// 	dataField: 'address.lng',
+			// 	text: this.props.t('general:lng'),
+			// 	align: 'center',
+			// 	sort: true
+			// }
+		]
+		const remoteTableFields = {
+			entity: 'https://roofr.gotomy.dev/api/v1/companies',
+			addRoute: '/companies/add',
+			customEntity: 'companies'
+		};
+
 		return (
-			<div className="animated">
-				<Card>
-					<CardHeader>
-						<strong>{this.props.t('general:all')} {this.props.t('entity:company')}</strong>
-					</CardHeader>
-					<CardBody>
-						<RemoteTable
-							entity="companies"
-							customEntity="entity/companies"
-							columns={columns}
-							sort={defaultSorted}
-							showDetail={true}
-							addRoute="/entity/companies/add"
-						/>
-					</CardBody>
-				</Card>
-			</div>
+			<CompanyList extendedFields={extendedFields} remoteTableFields={remoteTableFields} />
 		);
 	}
 }
 
-export default withTranslation([ 'general', 'entity' ])(CompanyList);
+export default withTranslation([ 'general', 'entity' ])(CustomCompanyList);

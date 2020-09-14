@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
-import { Card, CardBody } from 'reactstrap';
-import TermAdd from '../';
-import CardHeader from 'reactstrap/es/CardHeader';
 import { withTranslation } from 'react-i18next';
-import { withRouter } from 'react-router';
+import CompanyAdd from '../../modules/Entity/Company/Add';
 
-class CustomTermAdd extends Component {
-
+class CustomCompanyAdd extends Component {
     render() {
-
-		const fields = {
-			test: {
-				type: 'text',
-				label: this.props.t('general:test'),
-				required: true,
-				name: 'test',
-				col: 6
-			}
+		const customProps = {
+			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
+			redirect: 'companies'
 		};
-
 		return (
-			<TermAdd extendedFields={fields} {...this.props} />
+			<CompanyAdd customProps={customProps} {...this.props} />
 		);
 	}
 }
 
-export default withTranslation([ 'general' ])(CustomTermAdd);
+export default withTranslation([ 'general' ])(CustomCompanyAdd);
