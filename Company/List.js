@@ -6,23 +6,29 @@ class CustomCompanyList extends Component {
 	render() {
 		let extendedFields = [
 			{
-				dataField: 'address.zip_code',
-				text: this.props.t('general:zipcode'),
+				dataField: 'license_no',
+				text: this.props.t('general:license_no'),
 				align: 'center',
 				sort: true
 			},
-			// {
-			// 	dataField: 'address.lat',
-			// 	text: this.props.t('general:lat'),
-			// 	align: 'center',
-			// 	sort: true
-			// },
-			// {
-			// 	dataField: 'address.lng',
-			// 	text: this.props.t('general:lng'),
-			// 	align: 'center',
-			// 	sort: true
-			// }
+			{
+				dataField: 'target_area',
+				text: this.props.t('general:target_area'),
+				align: 'center',
+				sort: true
+			},
+			{
+				dataField: 'phone2',
+				removeField: true
+			},
+			{
+				dataField: 'address.state',
+				removeField: true
+			},
+			{
+				dataField: 'address.country',
+				removeField: true
+			},
 		]
 		const remoteTableFields = {
 			entity: 'https://roofr.gotomy.dev/api/v1/companies',
