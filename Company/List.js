@@ -33,7 +33,8 @@ class CustomCompanyList extends Component {
 		const remoteTableFields = {
 			entity: 'https://roofr.gotomy.dev/api/v1/companies',
 			addRoute: '/companies/add',
-			customEntity: 'companies'
+			customEntity: 'companies',
+			hideDetail: true
 		};
 
 		return (
