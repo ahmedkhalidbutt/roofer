@@ -10,7 +10,7 @@ class AppointmentList extends Component {
             { dataField: "id", text: 'Id', align: "center", sort: true, hidden: true },
             {
                 dataField: "booking.customer.person",
-                text: 'Customer Name',
+                text: this.props.t('general:customer-name'),
                 formatter: (person) => {
                     if(person){
                         return <Fragment>{person.first_name} {person.last_name}</Fragment>
@@ -24,19 +24,19 @@ class AppointmentList extends Component {
             },
             {
                 dataField: "booking.customer.person.phone1",
-                text: 'Contact Number',
+                text: this.props.t('general:phone'),
                 align: "center",
                 sort: true,
             },
             {
                 dataField: "company.name",
-                text: 'Roofer',
+                text: this.props.t('general:roofer'),
                 align: "center",
                 sort: true,
             },
             {
                 dataField: "date_time",
-                text: 'Date & Time',
+                text: this.props.t('general:date-time'),
                 align: "center",
                 sort: true,
             },
@@ -53,7 +53,7 @@ class AppointmentList extends Component {
             <div className="animated">
                 <Card>
                     <CardHeader>
-                        <strong>Appointments</strong>
+                        <strong>{this.props.t('general:appointment')}</strong>
                     </CardHeader>
                     <CardBody>
                         <RemoteTable
@@ -71,4 +71,4 @@ class AppointmentList extends Component {
     }
 }
 
-export default AppointmentList;
+export default withTranslation([ 'general', 'appointment' ])(AppointmentList);

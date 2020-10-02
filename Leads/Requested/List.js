@@ -29,13 +29,13 @@ class RequestedList extends Component {
 			{ dataField: 'id', text: 'ID', align: 'left', sort: true, hidden: true},
 			{
 				dataField: 'customer.person.first_name',
-				text: 'Customer Name',
+				text: this.props.t('general:customer-name'),
 				align: 'left',
 				sort: true
 			},
 			{
 				dataField: 'customer.person',
-				text: 'Contact Info',
+				text: this.props.t('general:contact-info'),
 				formatter: (person) => {
 					console.log(person);
 					if(person){
@@ -53,37 +53,37 @@ class RequestedList extends Component {
 			},
 			{
 				dataField: 'status',
-				text: 'Status',
+				text: this.props.t('general:status'),
 				align:'left',
 				sort: 'true'
 			},
 			{
 				dataField: 'location',
-				text: 'Location',
+				text: this.props.t('general:location'),
 				align:'left',
 				sort: 'true'
 			},
 			{
 				dataField: 'from_date',
-				text: 'Task Start',
+				text: this.props.t('general:task-start'),
 				align:'left',
 				sort: 'true'
 			},
 			{
 				dataField: 'to_date',
-				text: 'Task End',
+				text: this.props.t('general:task-end'),
 				align:'left',
 				sort: 'true'
 			},
 			{
 				dataField: 'company.name',
-				text: 'Roofer',
+				text: this.props.t('general:roofer'),
 				align:'left',
 				sort: 'true'
 			},
 			{
 				dataField: 'task',
-				text: 'Task',
+				text: this.props.t('general:task'),
 				align:'left',
 				sort: 'true'
 			},
