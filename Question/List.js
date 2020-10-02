@@ -11,19 +11,19 @@ class QuestionsList extends Component {
             { dataField: "id", text: this.props.t('general:id'), align: "center", sort: true, hidden: true },
             {
                 dataField: "order",
-                text: 'Order',
+                text: this.props.t('general:order'),
                 align: "center",
                 sort: true,
             },
             {
                 dataField: "body",
-                text: 'Body',
+                text: this.props.t('general:body'),
                 align: "center",
                 sort: true,
             },
             {
                 dataField: "status",
-                text: 'Status',
+                text: this.props.t('general:status'),
                 formatter: (val) => renderLabelAsBadge(val, 'Inactive', 'Active'),
                 align: "center",
                 sort: true,
