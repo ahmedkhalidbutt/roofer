@@ -27,11 +27,20 @@ export default class AppointmentUpdate extends Component {
 	};
 	updateStatus = () => {
 		let { id, selectedStatus } = this.state;
+		let status = {
+			status: selectedStatus
+		}
+		if(selectedStatus === 'accepted'){
+			status.category = 'requested'
+		}
 		api
-			.request('patch', `https://roofr.gotomy.dev/api/v1/bookings/${id}`, { status: selectedStatus })
+			.request('patch', `https://roofr.gotomy.dev/api/v1/bookings/${id}`, status)
 			.then((response) => {
-				this.props.history.goBack();
-				console.log(this.props.history.goBack());
+				let location = this.props.history.location.pathname;
+				let the_arr = location.split('/');
+				the_arr.pop();
+				let previousUrl = the_arr.join('/');
+				this.props.history.replace(previousUrl);
 				toast.success('Appointment Set Successfully', { autoClose: 3000 });
 			});
 	};

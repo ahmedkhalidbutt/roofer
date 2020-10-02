@@ -118,6 +118,7 @@ class RequestedList extends Component {
 							csvDownload={true}
 							getDetail={this.getDetail}
 							getRowId={this.handleEdit}
+							hideDetail={true}
                             selectedRows= {true}
 							{...this.props.remoteTableFields}
 						/>

@@ -57,8 +57,11 @@ export default class AppointmentAdd extends Component {
 		if (company_id) {
 			api.request('post', 'https://roofr.gotomy.dev/api/v1/appointments', appointmentPayload).then((response) => {
 				if (response) {
-					console.log(this.props.history);
-					this.props.history.goBack();
+					let location = this.props.history.location.pathname;
+					let the_arr = location.split('/');
+					the_arr.pop();
+					let previousUrl = the_arr.join('/');
+					this.props.history.replace(previousUrl);
 					toast.success('Appointment Set Successfully', { autoClose: 3000 });
 				}
 			});

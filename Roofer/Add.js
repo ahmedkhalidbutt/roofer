@@ -5,6 +5,14 @@ import CompanyAdd from '../../modules/Entity/Company/Add';
 class CustomCompanyAdd extends Component {
 	render() {
 		const extendedFields = {
+			password: {
+				type: 'password',
+				label: this.props.t('general:password'),
+				required: true,
+				name: 'password',
+				col: 4,
+				position: 2
+			},
 			license_no: {
 				type: 'text',
 				label: this.props.t('general:license-no'),
@@ -60,7 +68,7 @@ class CustomCompanyAdd extends Component {
 			debug: true
 		};
 		
-		return <CompanyAdd extendedFields={extendedFields} customProps={customProps} {...this.props} />;
+		return <CompanyAdd setPosition={true} extendedFields={extendedFields} customProps={customProps} {...this.props} />;
 	}
 }
 
