@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
-import CompanyList from '../../modules/Entity/Company/List'
+import CompanyList from '../../modules/Entity/Company/List';
 
 class CustomCompanyList extends Component {
 	render() {
@@ -12,8 +12,24 @@ class CustomCompanyList extends Component {
 				sort: true
 			},
 			{
-				dataField: 'target_area',
-				text: this.props.t('general:target_area'),
+				dataField: 'logo',
+				text: this.props.t('general:logo'),
+				formatter: (fileName) => (
+					<img
+						className="rounded-circle"
+						style={{ objectFit: 'cover' }}
+						src={fileName}
+						width={50}
+						height={50}
+						alt=""
+					/>
+				),
+				align: 'center',
+				position: 1
+			},
+			{
+				dataField: 'extra.location',
+				text: this.props.t('general:location'),
 				align: 'center',
 				sort: true
 			},
@@ -28,18 +44,15 @@ class CustomCompanyList extends Component {
 			{
 				dataField: 'address.country',
 				removeField: true
-			},
-		]
+			}
+		];
 		const remoteTableFields = {
 			entity: 'https://roofr.gotomy.dev/api/v1/companies',
-			addRoute: '/companies/add',
-			customEntity: 'companies',
-			hideDetail: true
+			addRoute: '/roofer/add',
+			customEntity: 'roofer'
 		};
 
-		return (
-			<CompanyList extendedFields={extendedFields} remoteTableFields={remoteTableFields} />
-		);
+		return <CompanyList setPosition={true} extendedFields={extendedFields} remoteTableFields={remoteTableFields} />;
 	}
 }
 

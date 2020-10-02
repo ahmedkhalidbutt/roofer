@@ -1,9 +1,9 @@
 export default [
 	{
 		_tag: 'CSidebarNavDropdown',
-		name: 'Leeds',
-		phrase: 'leeds',
-		to: '/leeds',
+		name: 'Leads',
+		phrase: 'leads',
+		to: '/leads',
 		icon: 'fas fa-bookmark',
 		hasRoute: false,
 		children: {
@@ -11,13 +11,13 @@ export default [
 				name: 'Visited',
 				phrase: 'visited',
 				icon: 'fas fa-eye',				
-				to: '/leeds/visited',
+				to: '/leads/visited',
 			},
 			requested: {
 				name: 'Requested',
 				phrase: 'requested',
 				icon: 'fas fa-low-vision',
-				to: '/leeds/requested'
+				to: '/leads/requested'
 			}
 		}
 	}

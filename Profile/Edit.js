@@ -10,28 +10,28 @@ class CustomCompanyAdd extends Component {
 				label: this.props.t('general:license_no'),
 				required: true,
 				name: 'license_no',
-				col: 6
+				col: 4
 			},
 			email: {
 				type: 'text',
 				label: this.props.t('general:email'),
 				required: true,
 				name: 'email',
-				col: 6
+				col: 4
 			},
 			target_area: {
 				type: 'text',
 				label: this.props.t('general:target_area'),
 				required: true,
 				name: 'target_area',
-				col: 6
+				col: 4
 			},
 			appointment_time: {
 				type: 'text',
 				label: this.props.t('general:appointment_time'),
 				required: true,
 				name: 'appointment_time',
-				col: 6
+				col: 4
 			},
 			state: false,
 			lat: false,
@@ -46,9 +46,15 @@ class CustomCompanyAdd extends Component {
 				col: 4
 			}
 		})
+		extendedFields.logo = {
+			type: 'filePic',
+			label: this.props.t('general:logo'),
+			name: 'logo',
+			col: 4
+		}
 		const customProps = {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
-			redirect: 'companies',
+			redirect: 'roofer',
 			hideDetail: true
 		};
 		

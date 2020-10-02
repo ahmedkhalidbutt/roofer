@@ -5,30 +5,30 @@ import CardHeader from 'reactstrap/es/CardHeader';
 import { withTranslation } from 'react-i18next';
 
 
-class QuestionAdd extends Component {
+class TestimonialsAdd extends Component {
 	render() {
 		const { id } = this.props.match.params;
 
 		const fields = {
-			body: {
+			name: {
 				type: 'text',
-				label: this.props.t('general:body'),
+				label: this.props.t('general:name'),
 				required: true,
-				name: 'body',
+				name: 'name',
 				col: 6
 			},
-			order: {
+			text: {
 				type: 'text',
-				label: this.props.t('general:order'),
+				label: this.props.t('general:text'),
 				required: true,
-				name: 'order',
+				name: 'text',
 				col: 6
 			},
-			status: {
-				type: 'switch',
-				label: this.props.t('general:status'),
+			image: {
+				type: 'filePic',
+				label: this.props.t('general:image'),
 				required: true,
-				name: 'status',
+				name: 'image',
 				col: 6
 			},
 
@@ -36,17 +36,16 @@ class QuestionAdd extends Component {
 		return (
 			<Card className="animated fadeIn">
 				<CardHeader>
-					{this.props.t('general:add-new')} {this.props.t('general:question')}
+					{this.props.t('general:add-new')} {this.props.t('general:testimonial')}
 				</CardHeader>
 				<CardBody>
 					<FormGenerator
-						targetEntity="https://roofr.gotomy.dev/api/v1/questions"
+						targetEntity="https://roofr.gotomy.dev/api/v1/testimonials"
 						fields={fields}
 						targetId={id}
-						name="questions"
-						initialValues={this.props.location.aboutProps}
+						name="testimonials"
 						debug={true}
-						redirect="questions"
+						redirect="testimonials"
 					/>
 				</CardBody>
 			</Card>
@@ -54,4 +53,4 @@ class QuestionAdd extends Component {
 	}
 }
 
-export default withTranslation([ 'general'])(QuestionAdd);
+export default withTranslation([ 'general'])(TestimonialsAdd);

@@ -2,32 +2,30 @@ import React, { Component } from "react";
 import { Card, CardBody, CardHeader } from "reactstrap";
 import RemoteTable from "../../components/common/RemoteTable";
 import { withTranslation } from 'react-i18next';
-import {renderLabelAsBadge} from '../../../helper';
 
-class QuestionsList extends Component {
+class TestimonialsList extends Component {
 
     render() {
         const columns = [
-            { dataField: "id", text: this.props.t('general:id'), align: "center", sort: true, hidden: true },
+            { dataField: "id", text: this.props.t('general:id'), align: "center", sort: true , hidden: true},
             {
-                dataField: "order",
-                text: 'Order',
+				dataField: 'image',
+				text: 'Image',
+				formatter: (image) => <img src={image} width={20} height={20} alt='' />,
+				align: 'center',
+			},
+            {
+                dataField: "name",
+                text: 'Name',
                 align: "center",
                 sort: true,
             },
             {
-                dataField: "body",
-                text: 'Body',
+                dataField: "text",
+                text: 'Text',
                 align: "center",
                 sort: true,
-            },
-            {
-                dataField: "status",
-                text: 'Status',
-                formatter: (val) => renderLabelAsBadge(val, 'Inactive', 'Active'),
-                align: "center",
-                sort: true,
-            },
+            },  
         ];
         
         const defaultSorted = [
@@ -41,15 +39,15 @@ class QuestionsList extends Component {
             <div className="animated">
                 <Card>
                     <CardHeader>
-                        <strong>{this.props.t('general:questions')}</strong>
+                        <strong>Testimonials</strong>
                     </CardHeader>
                     <CardBody>
                         <RemoteTable
-                            entity="https://roofr.gotomy.dev/api/v1/questions"
-                            customEntity = "questions"
+                            entity="https://roofr.gotomy.dev/api/v1/testimonials"
+                            customEntity = "testimonials"
                             columns={columns}
                             sort={defaultSorted}
-                            addRoute="/questions/add"
+                            addRoute="/testimonials/add"
                         />
                     </CardBody>
                 </Card>
@@ -58,4 +56,4 @@ class QuestionsList extends Component {
     }
 }
 
-export default withTranslation([ 'general' ])(QuestionsList);
+export default withTranslation([ 'general' ])(TestimonialsList);
