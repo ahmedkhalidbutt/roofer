@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileList = React.lazy(() => import('./List'));
+const ProfileList = React.lazy(() => import('./Add'));
 const ProfileEdit = React.lazy(() => import('./Edit'));
 
 const routes = {

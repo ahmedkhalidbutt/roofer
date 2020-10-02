@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../../api';
+import CustomCompanyAdd from '../Roofer/Add';
 
 class ProfileEdit extends Component {
 	constructor(props) {
@@ -15,20 +16,24 @@ class ProfileEdit extends Component {
 				let { data } = response;
 				this.setState({
 					id: data.id
-				}, () => {
-					api.request('get', `roofr.gotomy.dev/api/v1/companies/${this.state.id}`).then(response => {
-						if(response){
-							this.setState({
-								data: response.data
-							})
-						}
-					})
 				});
 			}
 		});
 	}
 	render() {
-		console.log(this.state);
+		const customProps = {
+			targetEntity: 'update-company',
+			id : this.state.id,
+			redirect: 'dashboard',
+			hideDetail: true,
+			debug: true,
+			customEditApi: 'companies'
+		};
+		if (this.state.id) {
+			return (
+				<CustomCompanyAdd id={this.state.id} customProps={customProps} />
+			);
+		}
 		return <div />;
 	}
 }

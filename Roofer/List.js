@@ -46,13 +46,26 @@ class CustomCompanyList extends Component {
 				removeField: true
 			}
 		];
+		const newButton = {
+			size: 'md',
+			color: 'success',
+			name: 'List Appointment',
+			callback: (row) => {
+				console.log(row);
+				this.props.history.replace({
+					pathname: `/custom-appointments/${row.id}`,
+					state: row
+				});
+			}
+		};
 		const remoteTableFields = {
 			entity: 'https://roofr.gotomy.dev/api/v1/companies',
 			addRoute: '/roofer/add',
-			customEntity: 'roofer'
+			customEntity: 'roofer',
+			customButton: newButton
 		};
 
-		return <CompanyList setPosition={true} extendedFields={extendedFields} remoteTableFields={remoteTableFields} />;
+		return <CompanyList  setPosition={true} extendedFields={extendedFields} remoteTableFields={remoteTableFields} />;
 	}
 }
 
