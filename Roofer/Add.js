@@ -5,17 +5,9 @@ import CompanyAdd from '../../modules/Entity/Company/Add';
 class CustomCompanyAdd extends Component {
 	render() {
 		const extendedFields = {
-			password: {
-				type: 'password',
-				label: this.props.t('general:password'),
-				required: true,
-				name: 'password',
-				col: 4,
-				position: 2
-			},
 			license_no: {
 				type: 'text',
-				label: this.props.t('general:license-no'),
+				label: this.props.t('entity:license-no'),
 				required: true,
 				name: 'license_no',
 				col: 4
@@ -27,9 +19,17 @@ class CustomCompanyAdd extends Component {
 				name: 'email',
 				col: 4
 			},
+			password: {
+				type: 'password',
+				label: this.props.t('user:password'),
+				required: true,
+				name: 'password',
+				col: 4,
+				position: 2
+			},
 			appointment_time: {
 				type: 'text',
-				label: this.props.t('general:appointment-time'),
+				label: this.props.t('entity:appointment-time'),
 				required: true,
 				name: 'appointment_time',
 				col: 4
@@ -42,7 +42,7 @@ class CustomCompanyAdd extends Component {
 		materialArr.forEach((material, i) => {
 			extendedFields[material] = {
 				type: 'number',
-				label: this.props.t(`general:${material}-cost`),
+				label: this.props.t(`entity:${material}-cost`),
 				name: `material[${i}]`,
 				col: 4
 			}
@@ -56,11 +56,11 @@ class CustomCompanyAdd extends Component {
 			name: 'logo',
 			col: 4
 		}
-		// extendedFields.html = {
-		// 	type: 'html',
-		// 	col: 12,
-		// 	render: '<h3>Target area</h3>'
-		// }
+		extendedFields.html = {
+			type: 'h4',
+			name: 'Target area',
+			col: 12
+		}
 		const customProps = {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
 			redirect: 'roofer',
@@ -72,4 +72,4 @@ class CustomCompanyAdd extends Component {
 	}
 }
 
-export default withTranslation([ 'general' ])(CustomCompanyAdd);
+export default withTranslation([ 'general', 'entity', 'user' ])(CustomCompanyAdd);

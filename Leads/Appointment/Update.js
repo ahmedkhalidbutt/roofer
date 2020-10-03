@@ -51,13 +51,13 @@ export default class AppointmentUpdate extends Component {
 		toast.configure();
 		return (
 			<Card style={{ textAlign: 'center', height: '370px' }}>
-				<div style={{ marginTop: '30px', marginBottom: '20px' }}>
+				<div style={{ marginTop: '30px', marginBottom: '20px' }} className='d-flex flex-column justify-content-center align-items-center'>
 					<h5>Select Status</h5>
 					<Input
 						onChange={(e) => this.handleStatusChange(e)}
 						defaultValue={this.state.status}
 						type="select"
-						style={{ width: '300px', marginLeft: '33%', marginBottom: '20px' }}
+						style={{ width: '300px', margin: '20px 0px' }}
 					>
 						<option value={this.state.status}>{this.state.status}</option>
 						{statusOptions}

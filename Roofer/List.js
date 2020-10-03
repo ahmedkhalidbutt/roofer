@@ -7,7 +7,7 @@ class CustomCompanyList extends Component {
 		let extendedFields = [
 			{
 				dataField: 'license_no',
-				text: this.props.t('general:license_no'),
+				text: this.props.t('entity:license-no'),
 				align: 'center',
 				sort: true
 			},
@@ -49,7 +49,7 @@ class CustomCompanyList extends Component {
 		const newButton = {
 			size: 'md',
 			color: 'success',
-			name: 'List Appointment',
+			name: this.props.t('entity:list-appointment'),
 			callback: (row) => {
 				console.log(row);
 				this.props.history.replace({
