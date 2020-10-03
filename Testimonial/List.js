@@ -10,19 +10,19 @@ class TestimonialsList extends Component {
             { dataField: "id", text: this.props.t('general:id'), align: "center", sort: true , hidden: true},
             {
 				dataField: 'image',
-				text: 'Image',
+				text: this.props.t('general:image'),
 				formatter: (image) => <img src={image} width={20} height={20} alt='' />,
 				align: 'center',
 			},
             {
                 dataField: "name",
-                text: 'Name',
+                text: this.props.t('general:name'),
                 align: "center",
                 sort: true,
             },
             {
                 dataField: "text",
-                text: 'Text',
+                text: this.props.t('general:text'),
                 align: "center",
                 sort: true,
             },  

@@ -7,7 +7,7 @@ class CustomCompanyList extends Component {
 		let extendedFields = [
 			{
 				dataField: 'license_no',
-				text: this.props.t('general:license_no'),
+				text: this.props.t('entity:license-no'),
 				align: 'center',
 				sort: true
 			},

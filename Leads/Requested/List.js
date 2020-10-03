@@ -128,4 +128,4 @@ class RequestedList extends Component {
 		);
 	}
 }
-export default withTranslation([ 'general' ])(RequestedList);
+export default withTranslation([ 'general', 'leads' ])(RequestedList);
