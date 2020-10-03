@@ -119,6 +119,7 @@ export default class AppointmentAdd extends Component {
 							/>
 						</Col>
 					</Row>
+					<Button>Authorize</Button>
 					<Button onClick={this.setAppointment} color="primary">
 						Set Appointment
 					</Button>
