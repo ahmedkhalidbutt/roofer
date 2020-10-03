@@ -56,11 +56,11 @@ class CustomCompanyAdd extends Component {
 			name: 'logo',
 			col: 4
 		}
-		// extendedFields.html = {
-		// 	type: 'html',
-		// 	col: 12,
-		// 	render: '<h3>Target area</h3>'
-		// }
+		extendedFields.html = {
+			type: 'h4',
+			name: 'Target area',
+			col: 12
+		}
 		const customProps = {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
 			redirect: 'roofer',
