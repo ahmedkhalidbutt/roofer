@@ -4,7 +4,6 @@ import FormGenerator from '../../components/common/FormGenerator/FormGenerator';
 import CardHeader from 'reactstrap/es/CardHeader';
 import { withTranslation } from 'react-i18next';
 
-
 class QuestionAdd extends Component {
 	render() {
 		const { id } = this.props.match.params;
@@ -18,11 +17,33 @@ class QuestionAdd extends Component {
 				col: 6
 			},
 			order: {
-				type: 'text',
+				type: 'number',
 				label: this.props.t('general:order'),
 				required: true,
 				name: 'order',
 				col: 6
+			},
+			options: {
+				type: 'dynamicFields',
+				label: this.props.t('questions'),
+				name: 'options',
+				col: 12,
+				schema: {
+					image0: {
+						type: 'filePic',
+						label: this.props.t('image'),
+						name: 'image0',
+						height: '148%',
+						width: '89%',
+						col: 3
+					},
+					title0: {
+						type: 'text',
+						label: this.props.t('title'),
+						name: 'title0',
+						col: 9
+					}
+				}
 			},
 			status: {
 				type: 'switch',
@@ -30,8 +51,7 @@ class QuestionAdd extends Component {
 				required: true,
 				name: 'status',
 				col: 6
-			},
-
+			}
 		};
 		return (
 			<Card className="animated fadeIn">
@@ -44,7 +64,7 @@ class QuestionAdd extends Component {
 						fields={fields}
 						targetId={id}
 						name="questions"
-						initialValues={this.props.location.aboutProps}
+						// initialValues={this.props.location.aboutProps}
 						debug={false}
 						redirect="questions"
 					/>
@@ -54,4 +74,4 @@ class QuestionAdd extends Component {
 	}
 }
 
-export default withTranslation([ 'general'])(QuestionAdd);
+export default withTranslation([ 'general' ])(QuestionAdd);
