@@ -11,14 +11,14 @@ const styles = {
 }
 class RequestedList extends Component {
 	getDetail = (data) => {
-		this.props.history.replace({
+		this.props.history.push({
             pathname: '/leads/requested/add-appointment',
             state: data
         })
 	};
 
 	handleEdit = (data) => {
-		this.props.history.replace({
+		this.props.history.push({
             pathname: '/leads/requested/update-appointment',
             state: data
         })

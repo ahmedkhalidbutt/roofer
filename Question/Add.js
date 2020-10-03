@@ -45,7 +45,7 @@ class QuestionAdd extends Component {
 						targetId={id}
 						name="questions"
 						initialValues={this.props.location.aboutProps}
-						debug={true}
+						debug={false}
 						redirect="questions"
 					/>
 				</CardBody>
