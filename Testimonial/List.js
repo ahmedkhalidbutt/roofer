@@ -39,7 +39,7 @@ class TestimonialsList extends Component {
             <div className="animated">
                 <Card>
                     <CardHeader>
-                        <strong>Testimonials</strong>
+                        <strong>{this.props.t('general:testimonials')}</strong>
                     </CardHeader>
                     <CardBody>
                         <RemoteTable

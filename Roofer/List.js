@@ -49,7 +49,7 @@ class CustomCompanyList extends Component {
 		const newButton = {
 			size: 'md',
 			color: 'success',
-			name: 'List Appointment',
+			name: this.props.t('entity:list-appointment'),
 			callback: (row) => {
 				console.log(row);
 				this.props.history.replace({
