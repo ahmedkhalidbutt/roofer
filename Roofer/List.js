@@ -51,8 +51,7 @@ class CustomCompanyList extends Component {
 			color: 'success',
 			name: this.props.t('entity:list-appointment'),
 			callback: (row) => {
-				console.log(row);
-				this.props.history.replace({
+				this.props.history.push({
 					pathname: `/custom-appointments/${row.id}`,
 					state: row
 				});

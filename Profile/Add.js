@@ -26,7 +26,7 @@ class ProfileEdit extends Component {
 			id : this.state.id,
 			redirect: 'dashboard',
 			hideDetail: true,
-			debug: true,
+			debug: false,
 			customEditApi: 'companies'
 		};
 		if (this.state.id) {

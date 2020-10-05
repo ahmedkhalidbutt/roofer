@@ -44,7 +44,7 @@ class TestimonialsAdd extends Component {
 						fields={fields}
 						targetId={id}
 						name="testimonials"
-						debug={true}
+						debug={false}
 						redirect="testimonials"
 					/>
 				</CardBody>

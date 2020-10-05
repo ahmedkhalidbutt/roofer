@@ -66,7 +66,7 @@ class CustomCompanyAdd extends Component {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
 			redirect: 'roofer',
 			hideDetail: true,
-			debug: true
+			debug: false
 		};
 
 		return (
