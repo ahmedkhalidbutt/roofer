@@ -16,6 +16,7 @@ class CustomCompanyAdd extends Component {
 				type: 'text',
 				label: this.props.t('general:email'),
 				required: true,
+				validation: 'email',
 				name: 'email',
 				col: 4
 			},
@@ -56,18 +57,18 @@ class CustomCompanyAdd extends Component {
 		})
 		extendedFields.break2 = {
 			type: 'nextline'
-		}
+		};
 		extendedFields.logo = {
 			type: 'filePic',
 			label: this.props.t('general:logo'),
 			name: 'logo',
 			col: 4
-		}
+		};
 		extendedFields.html = {
 			type: 'h4',
 			name: 'Target area',
 			col: 12
-		}
+		};
 		const customProps = {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
 			redirect: 'roofer',

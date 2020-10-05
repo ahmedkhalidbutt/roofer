@@ -8,8 +8,9 @@ export default class CompanyDetail extends Component {
 				<DetailView
 					id={this.props.match.params.id}
 					entity="companies"
-					image={['logo']}
+					image={[ 'logo' ]}
 					data={typeof this.props.location === 'undefined' ? false : this.props.location.aboutProps}
+					filterArr={[ 'created_at', 'updated_at' ]}
 				/>
 			</div>
 		);

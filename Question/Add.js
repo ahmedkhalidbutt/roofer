@@ -29,6 +29,12 @@ class QuestionAdd extends Component {
 				name: 'options',
 				col: 12,
 				schema: {
+					title0: {
+						type: 'text',
+						label: this.props.t('title'),
+						name: 'title0',
+						col: 9
+					},
 					image0: {
 						type: 'filePic',
 						label: this.props.t('image'),
@@ -36,12 +42,6 @@ class QuestionAdd extends Component {
 						height: '148%',
 						width: '89%',
 						col: 3
-					},
-					title0: {
-						type: 'text',
-						label: this.props.t('title'),
-						name: 'title0',
-						col: 9
 					}
 				}
 			},
