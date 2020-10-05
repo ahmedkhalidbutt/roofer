@@ -29,6 +29,13 @@ class QuestionAdd extends Component {
 				name: 'options',
 				col: 12,
 				schema: {
+					// id0: {
+					// 	type: 'text',
+					// 	hidden: true,
+					// 	label: this.props.t('id'),
+					// 	name: 'id0',
+					// 	col: 9
+					// },
 					title0: {
 						type: 'text',
 						label: this.props.t('title'),
@@ -63,9 +70,11 @@ class QuestionAdd extends Component {
 						targetEntity="https://roofr.gotomy.dev/api/v1/questions"
 						fields={fields}
 						targetId={id}
+						repeater={true}
 						name="questions"
+						additionalDyanmicVal={[ 'id' ]}
 						// initialValues={this.props.location.aboutProps}
-						debug={false}
+						debug={true}
 						redirect="questions"
 					/>
 				</CardBody>
