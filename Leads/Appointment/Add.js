@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-datepicker/dist/react-datepicker.css';
 import { convertModelToFormData } from '../../../../helper';
 import api from '../../../../api';
+import ApiCalendar from 'react-google-calendar-api';
 
 export default class AppointmentAdd extends Component {
 	constructor(props) {
@@ -13,7 +14,9 @@ export default class AppointmentAdd extends Component {
 			booking_id: this.props.location.state ? this.props.location.state.id : false,
 			companyList: [],
 			company_id: false,
-			selectedDate: new Date()
+			selectedDate: new Date(),
+			isSignedIn: false,
+			calendarEvents: '',
 		};
 	}
 	componentDidMount() {
@@ -68,9 +71,30 @@ export default class AppointmentAdd extends Component {
 		} else toast.error('Select company', { autoClose: 3000 });
 	};
 
+	handleSignIn = (e) => {
+		console.log(ApiCalendar);
+		ApiCalendar.handleAuthClick().then((response) => {
+			this.setState(
+				{
+					isSignedIn: true
+				},
+				this.getEvents
+			);
+		});
+	};
+
+	getEvents = () => {
+		if (ApiCalendar.sign)
+			ApiCalendar.listUpcomingEvents(10).then(({ result }) => {
+				console.log(result.items);
+				this.setState({
+					calendarEvents: result.items
+				})
+			});
+	};
+
 	render() {
 		let { selectedDate, companyList } = this.state;
-		console.log(this.props);
 		toast.configure();
 		let companySelect = (
 			<Input type="select">
@@ -119,7 +143,14 @@ export default class AppointmentAdd extends Component {
 							/>
 						</Col>
 					</Row>
-					<Button>Authorize</Button>
+					<Button
+						style={{
+							marginRight: '15px'
+						}}
+						onClick={(e) => this.handleSignIn(e)}
+					>
+						Authorize
+					</Button>
 					<Button onClick={this.setAppointment} color="primary">
 						Set Appointment
 					</Button>
