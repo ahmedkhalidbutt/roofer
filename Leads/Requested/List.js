@@ -26,7 +26,7 @@ class RequestedList extends Component {
 
 	render() {
 		const columns = [
-			{ dataField: 'id', text: 'ID', align: 'left', sort: true, hidden: true},
+			{ dataField: 'id', text: this.props.t('general:id'), align: 'left', sort: true, hidden: true},
 			{
 				dataField: 'customer.person.first_name',
 				text: this.props.t('general:customer-name'),
@@ -37,7 +37,6 @@ class RequestedList extends Component {
 				dataField: 'customer.person',
 				text: this.props.t('general:contact-info'),
 				formatter: (person) => {
-					console.log(person);
 					if(person){
 						return (
 							<ul style={styles.ul}>
@@ -72,12 +71,6 @@ class RequestedList extends Component {
 			{
 				dataField: 'to_date',
 				text: this.props.t('general:task-end'),
-				align:'left',
-				sort: 'true'
-			},
-			{
-				dataField: 'company.name',
-				text: this.props.t('general:roofer'),
 				align:'left',
 				sort: 'true'
 			},
