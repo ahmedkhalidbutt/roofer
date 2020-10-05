@@ -28,26 +28,33 @@ class CustomCompanyAdd extends Component {
 				position: 2
 			},
 			appointment_time: {
-				type: 'text',
+				type: 'dateTime',
 				label: this.props.t('entity:appointment-time'),
 				required: true,
 				name: 'appointment_time',
-				col: 4
+				col: 12
+			},
+			break1: {
+				type: 'nextline'
 			},
 			state: false,
 			lat: false,
-			lng: false
+			lng: false,
+			
 		};
 		let materialArr = [ 'asphalt', 'metal', 'tiles' ];
 		materialArr.forEach((material, i) => {
 			extendedFields[material] = {
+				parent: 'material',
 				type: 'number',
 				label: this.props.t(`entity:${material}-cost`),
-				name: `material[${i}]`,
+				name: material,
+				required: true,
+				validation: 'positive',
 				col: 4
 			}
 		})
-		extendedFields.break = {
+		extendedFields.break2 = {
 			type: 'nextline'
 		}
 		extendedFields.logo = {
@@ -65,9 +72,9 @@ class CustomCompanyAdd extends Component {
 			targetEntity: 'https://roofr.gotomy.dev/api/v1/companies',
 			redirect: 'roofer',
 			hideDetail: true,
-			debug: false
+			debug: true
 		};
-		
+
 		return <CompanyAdd setPosition={true} extendedFields={extendedFields} customProps={customProps} {...this.props} />;
 	}
 }

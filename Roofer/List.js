@@ -18,7 +18,7 @@ class CustomCompanyList extends Component {
 					<img
 						className="rounded-circle"
 						style={{ objectFit: 'cover' }}
-						src={fileName}
+						src={fileName ? fileName : require('../../../assets/images/image-placeholder.jpg')}
 						width={50}
 						height={50}
 						alt=""

@@ -7,7 +7,7 @@ export default class AppointmentUpdate extends Component {
 		super(props);
 		this.state = {
 			id: this.props.location.state ? this.props.location.state.id : false,
-			status: this.props.location.state ? this.props.location.state.status : 'Select Status',
+			status: this.props.location.state ? this.props.location.state.booking.status : 'Select Status',
 			statusOptions: [ 'accepted', 'rejected', 'pending', 'bad lead' ],
 			selectedStatus: this.props.location.state ? this.props.location.state.status : false
 		};
@@ -46,7 +46,7 @@ export default class AppointmentUpdate extends Component {
 	};
 	render() {
 		let statusOptions = this.state.statusOptions.map((option) => {
-			return <option value={option}>{option}</option>;
+			return <option key={option} value={option}>{option}</option>;
 		});
 		toast.configure();
 		return (

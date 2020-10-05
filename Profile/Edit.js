@@ -36,15 +36,18 @@ class CustomCompanyAdd extends Component {
 			lat: false,
 			lng: false
 		};
-		let materialArr = [ 'Asphalt', 'Metal', 'Tiles' ];
+		let materialArr = [ 'asphalt', 'metal', 'tiles' ];
 		materialArr.forEach((material, i) => {
 			extendedFields[material] = {
-				type: 'text',
-				label: `${material}`,
-				name: `material[${i}]`,
+				parent: 'material',
+				type: 'number',
+				label: this.props.t(`entity:${material}-cost`),
+				name: material,
+				required: true,
+				validation: 'positive',
 				col: 4
-			};
-		});
+			}
+		})
 		extendedFields.logo = {
 			type: 'filePic',
 			label: 'Logo',
