@@ -49,7 +49,7 @@ class CustomCompanyList extends Component {
 		const newButton = {
 			size: 'md',
 			color: 'success',
-			name: this.props.t('entity:list-appointment'),
+			name: this.props.t('entity:list-of-appointments'),
 			callback: (row) => {
 				this.props.history.push({
 					pathname: `/custom-appointments/${row.id}`,
