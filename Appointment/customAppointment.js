@@ -23,15 +23,9 @@ class CustomAppointmentList extends Component {
 			{ dataField: 'id', text: this.props.t('general:id'), align: 'center', sort: true, hidden: true },
 			{
 				dataField: 'booking.customer.id',
-				text: this.props.t('Customer Info'),
+				text: this.props.t('general:email'),
 				align: 'center',
-				formatter: (cell, row) => (
-					<React.Fragment>
-						<p>Username: {row.booking.customer.person.title}</p>
-						<p>Email: {row.booking.customer.person.email}</p>
-						<p>Phone: {row.booking.customer.person.phone1}</p>
-					</React.Fragment>
-				),
+				formatter: (cell, row) => <span>{row.booking.customer.person.email}</span>,
 				sort: true
 			},
 			{
@@ -114,4 +108,4 @@ class CustomAppointmentList extends Component {
 	}
 }
 
-export default withTranslation([ 'general' ])(CustomAppointmentList);
+export default withTranslation(['general']) (CustomAppointmentList);

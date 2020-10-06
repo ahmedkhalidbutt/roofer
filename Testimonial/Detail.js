@@ -8,7 +8,6 @@ export default class TestimonialsDetail extends Component {
 				<DetailView
 					id={this.props.match.params.id}
 					entity="testimonials"
-					image={[ 'image' ]}
 					data={typeof this.props.location === 'undefined' ? false : this.props.location.aboutProps}
 				/>
 			</div>

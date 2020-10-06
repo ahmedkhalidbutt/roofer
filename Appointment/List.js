@@ -5,28 +5,26 @@ import { withTranslation } from 'react-i18next';
 import { AppContext } from '../../components/context';
 
 class AppointmentList extends Component {
-	static contextType = AppContext;
-
-	componentDidMount() {
-		if (this.context.modules.length === 2) {
-			this.props.history.replace(`/custom-appointments/${this.context.userId}`);
-		}
-	}
+    static contextType = AppContext;
+    
+    componentDidMount() {
+        if (this.context.modules.length === 2) {
+            this.props.history.replace(`/custom-appointments/${this.context.userId}`)
+        }
+    }
 
 	render() {
 		const columns = [
 			{ dataField: 'id', text: 'Id', align: 'center', sort: true, hidden: true },
 			{
 				dataField: 'booking.customer.person',
-				text: this.props.t('Customer Info'),
+				text: this.props.t('general:customer-name'),
 				formatter: (person) => {
 					if (person) {
 						return (
-							<React.Fragment>
-								<p>Username: {person.title}</p>
-								<p>Email: {person.email}</p>
-								<p>Phone: {person.phone1}</p>
-							</React.Fragment>
+							<Fragment>
+								{person.first_name} {person.last_name}
+							</Fragment>
 						);
 					} else {
 						return <div />;
@@ -61,7 +59,7 @@ class AppointmentList extends Component {
 				order: 'desc'
 			}
 		];
-
+        
 		return (
 			<div className="animated">
 				<Card>
@@ -70,19 +68,13 @@ class AppointmentList extends Component {
 					</CardHeader>
 					<CardBody>
 						<RemoteTable
-							entity={
-								this.context.modules.length === 2 ? (
-									`get-roofr-appointments/${this.context.userId}`
-								) : (
-									'appointments'
-								)
-							}
+							entity={this.context.modules.length === 2 ? `get-roofr-appointments/${this.context.userId}` : 'appointments'}
 							customEntity="appointments"
 							columns={columns}
 							sort={defaultSorted}
 							hideEdit={true}
-							urlName="appointment"
-							saveData={false}
+                            urlName="appointment"
+                            saveData={false}
 						/>
 					</CardBody>
 				</Card>
