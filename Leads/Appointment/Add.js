@@ -74,6 +74,7 @@ export default class AppointmentAdd extends Component {
 	handleSignIn = (e) => {
 		console.log(ApiCalendar);
 		ApiCalendar.handleAuthClick();
+		this.getEvents()
 	};
 
 	getEvents = () => {
