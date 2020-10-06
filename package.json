@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ahmedkhalidbutt/roofer/issues"
   },
-  "homepage": "https://github.com/ahmedkhalidbutt/roofer#readme"
+  "homepage": "https://github.com/ahmedkhalidbutt/roofer#readme",
+  "dependencies": {
+    "react-google-calendar-api": "^1.2.1"
+  }
 }

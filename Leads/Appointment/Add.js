@@ -73,14 +73,7 @@ export default class AppointmentAdd extends Component {
 
 	handleSignIn = (e) => {
 		console.log(ApiCalendar);
-		ApiCalendar.handleAuthClick().then((response) => {
-			this.setState(
-				{
-					isSignedIn: true
-				},
-				this.getEvents
-			);
-		});
+		ApiCalendar.handleAuthClick();
 	};
 
 	getEvents = () => {
